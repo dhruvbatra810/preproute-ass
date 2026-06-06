@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import { useForm, Controller } from "react-hook-form"
+import type { Resolver } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useNavigate } from "react-router-dom"
@@ -44,7 +45,7 @@ export default function TestCreationPage() {
     const { data: testByIdData } = useGetTestById(editId ?? "")
 
     const { register, handleSubmit, control, watch, setValue, reset, formState: { errors } } = useForm<TestCreationFormData>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as Resolver<TestCreationFormData>,
         defaultValues: {
             type: "chapterwise",
             difficulty: "easy",
@@ -119,7 +120,7 @@ export default function TestCreationPage() {
     const persist = (data: TestCreationFormData) => setFormData(data, editId ?? undefined)
 
     const submitWithStatus = (status: "draft" | "unpublished") => {
-        handleSubmit((data) => {
+        handleSubmit((data: TestCreationFormData) => {
             persist(data)
             const onSuccess = (response: Record<string, unknown>) => {
                 if (status === "draft") {
@@ -249,7 +250,7 @@ export default function TestCreationPage() {
                             render={({ field }) => (
                                 <MultiSelect
                                     options={topics}
-                                    value={field.value}
+                                    value={field.value ?? []}
                                     onChange={(val) => {
                                         field.onChange(val)
                                         setValue("sub_topics", [])
@@ -270,7 +271,7 @@ export default function TestCreationPage() {
                             render={({ field }) => (
                                 <MultiSelect
                                     options={subTopics}
-                                    value={field.value}
+                                    value={field.value ?? []}
                                     onChange={field.onChange}
                                     placeholder="Choose from Drop-down"
                                     disabled={!selectedTopics?.length}

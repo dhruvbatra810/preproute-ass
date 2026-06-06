@@ -15,7 +15,7 @@ export const useTestCreationStore = create<TestCreationState>((set) => ({
     formData: null,
     editId: null,
     testId: null,
-    setFormData: (data, editId = null) => set({ formData: data, editId }),
+    setFormData: (data, editId) => set({ formData: data, editId: editId ?? null }),
     setTestId: (id) => set({ testId: id }),
     clearFormData: () => set({ formData: null, editId: null }),
     clearAll: () => set({ formData: null, editId: null, testId: null }),
