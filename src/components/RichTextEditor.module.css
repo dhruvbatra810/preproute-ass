@@ -1,0 +1,96 @@
+.wrapper {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 10px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+    flex-wrap: wrap;
+}
+
+.toolbarBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    color: #475569;
+    transition: background 0.15s, color 0.15s;
+}
+
+.toolbarBtn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.toolbarBtn.active {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+.divider {
+    width: 1px;
+    height: 20px;
+    background: #e2e8f0;
+    margin: 0 4px;
+}
+
+.editorContent {
+    min-height: 100px;
+    padding: 12px;
+    outline: none;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1e293b;
+}
+
+/* Tiptap renders inside .tiptap class */
+:global(.tiptap) {
+    min-height: 100px;
+    padding: 12px;
+    outline: none;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1e293b;
+}
+
+:global(.tiptap) p {
+    margin: 0 0 4px;
+}
+
+:global(.tiptap) ul,
+:global(.tiptap) ol {
+    padding-left: 20px;
+}
+
+:global(.tiptap p.is-editor-empty:first-child::before) {
+    content: attr(data-placeholder);
+    color: #94a3b8;
+    pointer-events: none;
+    float: left;
+    height: 0;
+}
+
+:global(.tiptap) img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 8px 0;
+}
+
+:global(.tiptap) img.ProseMirror-selectednode {
+    outline: 2px solid #4f46e5;
+    border-radius: 4px;
+}

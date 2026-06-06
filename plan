@@ -1,0 +1,37 @@
+dasbhboard  -> login store jwt in local storage and pass it is header, use this key to check if user is login or not 
+
+protected routes : 
+
+    left side bar with naviagations : dasbhboard , test creations , test tracking (disabled)
+
+    dasbhboard: display all test in card format (GET /test),  edit test ( navigate to toe edit/create router) ,  delete test ( /delete api not there) , create test, future: ( we can use intersection observer )
+
+    create / edit test details ( name , subject and other feilds , get subject, get topic, get sub topic ) , multi select , difficulty , marking , total time,marks -> navigate to questions page 
+
+    question Page : show the above test details get from global , question tab with multiple feilds and validatoin , button: add new question  save and continue (valid: min 1 q required), side bar contains list of questions display with edit and delete, 
+
+    publis page : should display test overview with edit button for test descripition and questions
+
+
+
+    validations: 
+    
+    if test is publised user is not allowed to edit the details : yes
+
+    can test be published / edit after published again time has over?: no
+
+    can question be edited again if test is not published ( endpoint for it) ?  yes if unpublished ,draft
+
+
+
+Status must be one of: live, unpublished, scheduled, expired, draft
+type of test :
+"quiz"
+"exam"
+"mock"
+"assessment"
+"test"
+
+
+view and edit open the test page with prefilled data : topic and subtopic are not listed why because test id return the string not the id of the topic and and all ,
+for subtopic we need topic uuid , for topic we need subject uuid , subject uuid is not present in the getTestbyid response , either i need to fetch all the subject then filter out the subject with name take it uuid , then do the same process 

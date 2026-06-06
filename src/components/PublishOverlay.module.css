@@ -1,0 +1,518 @@
+.overlay {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    height: 100%;
+    overflow-y: auto;
+    background: #f8fafc;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.headerTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.doneBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 14px;
+    background: #dcfce7;
+    color: #166534;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.checkCircle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: #22c55e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* ── Test summary card ───────────────────────────────── */
+.card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px 20px;
+}
+
+.cardTopRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.typeBadge {
+    padding: 5px 16px;
+    background: #0f172a;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.editBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background 0.12s;
+}
+
+.editBtn:hover:not(:disabled) {
+    background: #ede9fe;
+}
+
+.editBtn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.cardBody {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.cardLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cardTitleRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+}
+
+.bookIcon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.testName {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.diffBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.easy     { background: #dcfce7; color: #166534; }
+.medium   { background: #fef9c3; color: #854d0e; }
+.difficult { background: #fee2e2; color: #991b1b; }
+
+/* difficulty badge icon (leaf/brain emoji fallback handled via text) */
+.diffBadge::before {
+    font-size: 12px;
+}
+
+.metaRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    min-height: 22px;
+}
+
+.metaKey {
+    font-size: 13px;
+    color: #64748b;
+    min-width: 68px;
+    flex-shrink: 0;
+}
+
+.metaSep {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.metaText {
+    font-size: 13px;
+    color: #1e293b;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chip {
+    padding: 2px 10px;
+    background: #fffbeb;
+    color: #92400e;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.cardRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+    padding-left: 16px;
+    border-left: 1px solid #f1f5f9;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+/* ── Questions accordion ────────────────────────────── */
+.accordion {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.accordionToggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.12s;
+}
+
+.accordionToggle:hover {
+    background: #f8fafc;
+}
+
+.accordionArrow {
+    font-size: 16px;
+    color: #64748b;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.accordionArrowOpen {
+    transform: rotate(180deg);
+}
+
+.questionsList {
+    border-top: 1px solid #e2e8f0;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+.questionItem {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.questionItem:last-child {
+    border-bottom: none;
+}
+
+.questionText {
+    font-size: 13px;
+    color: #1e293b;
+    margin: 0 0 10px;
+    line-height: 1.5;
+}
+
+.questionNum {
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+.optionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.optionRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #374151;
+    background: #f8fafc;
+}
+
+.correctOption {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.optionLabel {
+    font-weight: 600;
+    width: 18px;
+    flex-shrink: 0;
+}
+
+.optionText {
+    flex: 1;
+}
+
+.correctTick {
+    font-size: 13px;
+    color: #16a34a;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* ── Tabs ───────────────────────────────────────────── */
+.tabs {
+    display: flex;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+    width: fit-content;
+}
+
+.tab {
+    padding: 8px 20px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+}
+
+.tab:hover {
+    color: #1e293b;
+}
+
+.activeTab {
+    background: #4f46e5;
+    color: #fff;
+}
+
+.activeTab:hover {
+    color: #fff;
+}
+
+/* ── Tab content ────────────────────────────────────── */
+.tabContent {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sectionTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+}
+
+.sectionDesc {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ── Radio grid ─────────────────────────────────────── */
+.radioGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 32px;
+}
+
+.radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    user-select: none;
+}
+
+.radioLabel input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #4f46e5;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* ── Date / time row ────────────────────────────────── */
+.dateRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dateInput {
+    width: 100%;
+    padding: 10px 40px 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background: #fff;
+    box-sizing: border-box;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.12s;
+}
+
+.dateInput:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+}
+
+.timeSelect {
+    width: 100%;
+    padding: 10px 40px 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background: #fff;
+    box-sizing: border-box;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.12s;
+}
+
+.timeSelect:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+}
+
+.inputIcon {
+    position: absolute;
+    right: 12px;
+    color: #94a3b8;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+/* placeholder color for date input */
+.dateInput:not([value=""]) { color: #374151; }
+
+/* ── Footer ─────────────────────────────────────────── */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 4px;
+}
+
+.cancelBtn {
+    padding: 10px 28px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4f46e5;
+    cursor: pointer;
+    transition: background 0.12s;
+}
+
+.cancelBtn:hover:not(:disabled) {
+    background: #ede9fe;
+}
+
+.cancelBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.confirmBtn {
+    padding: 10px 40px;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.12s;
+}
+
+.confirmBtn:hover:not(:disabled) {
+    background: #4338ca;
+}
+
+.confirmBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

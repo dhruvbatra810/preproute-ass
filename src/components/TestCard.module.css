@@ -1,0 +1,144 @@
+.card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 99px;
+    text-transform: capitalize;
+    flex-shrink: 0;
+}
+
+.draft {
+    background-color: #fef9c3;
+    color: #854d0e;
+}
+
+.unpublished {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.published,
+.live {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.subject {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.topic {
+    font-size: 11px;
+    background-color: #f3f4f6;
+    color: #374151;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.date {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 2px;
+}
+
+.viewBtn:disabled,
+.editBtn:disabled,
+.deleteBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.viewBtn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e5e7eb;
+    background: transparent;
+    color: #374151;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.viewBtn:hover {
+    background: #f9fafb;
+}
+
+.editBtn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #4f46e5;
+    background: transparent;
+    color: #4f46e5;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.editBtn:hover {
+    background: #eef2ff;
+}
+
+.deleteBtn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e5e7eb;
+    background: transparent;
+    color: #ef4444;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.deleteBtn:hover {
+    background: #fef2f2;
+}
